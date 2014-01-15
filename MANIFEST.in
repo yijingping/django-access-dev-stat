@@ -1,0 +1,4 @@
+include LICENSE
+include README.rst
+recursive-include access_dev_stat/templates *
+recursive-include docs *
