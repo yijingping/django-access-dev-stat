@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 setup(
     name='django-access-dev-stat',
     version='0.1',
-    packages=['access-dev-stat'],
+    packages=['access_dev_stat'],
     include_package_data=True,
     license='BSD License',  # example license
     description='calculate the number of devices which request each api',
