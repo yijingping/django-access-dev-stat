@@ -11,6 +11,9 @@ Detailed documentation is in the "docs" directory.
 Quick start
 -----------
 
+1. Install
+   pip install  git+https://github.com/yijingping/django-access-dev-stat#egg=django_access_dev_stat
+
 1. Add "access_dev_stat" to your INSTALLED_APPS setting like this::
 
     INSTALLED_APPS = (
