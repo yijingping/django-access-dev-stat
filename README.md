@@ -23,7 +23,7 @@ Here is some screen shot from my django app.
 
 By the way, it also do good on mobile.
 
-![mobile version](docs/screenshot/mobile_platform.png)   
+![mobile version](docs/screenshot/mobile_platform.png) 
 ![mobile list](docs/screenshot/mobile_list.png)
 
 
