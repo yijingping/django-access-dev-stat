@@ -12,6 +12,8 @@ From these charts, you can find:
 
 * app channels, app versions, app platfrom statistics.
 
+Screenshots
+---------------
 
 Here is some screen shot from my django app.
 
@@ -21,9 +23,10 @@ Here is some screen shot from my django app.
 
 By the way, it also do good on mobile.
 
-![mobile version](docs/screenshot/mobile_platform.jpg)
+![mobile version](docs/screenshot/mobile_platform.png)
+![mobile list](docs/screenshot/mobile_list.png)
 
-![mobile list](docs/screenshot/mobile_list.jpg)
 
-
+Quick Start
+---------------
 [Quick Start](<https://github.com/yijingping/django-access-dev-stat/blob/master/docs/quickstart.rst>)
