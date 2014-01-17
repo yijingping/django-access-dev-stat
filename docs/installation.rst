@@ -13,7 +13,7 @@ The recommended way to install AccessDevStat latest version is via pip_::
 Quick Setup
 -----------
 
-copy the content of `settings.py.example` to the end of `settings.py`.  
+copy the content of ``settings.py.example`` to the end of ``settings.py``.  
 
 Then check the settings line by line.
 
@@ -37,7 +37,7 @@ make sure your have a redis backend cache::
 
 Settings
 ~~~~~~~~~~~~~~
-enable this app in you django's `settings.py`::
+enable this app in you django's ``settings.py``::
 
     ACCESS_DEV_STAT = True
     if ACCESS_DEV_STAT: 
@@ -63,7 +63,7 @@ enable this app in you django's `settings.py`::
 
 More Confiure
 ~~~~~~~~~~~~~~
-confiure record date range and record view function in `settings.py`::
+confiure record date range and record view function in ``settings.py``::
 
     # control available date range
     from datetime import date
@@ -87,4 +87,4 @@ Add AccessDevStat's URLs to your project's URLconf as follows::
 Start Your Project
 ------------------
 
-Start your django project, Then it will record every request in your `ACCESS_DEV_STAT_INCLUDE_VIEWS`.
+Start your django project, Then it will record every request in your ``ACCESS_DEV_STAT_INCLUDE_VIEWS``.
