@@ -17,16 +17,16 @@ Screenshots
 
 Here is some screen shot from my django app.
 
-![app alive](docs/screenshot/alive.png)
+![app alive](docs/_static/alive.png)
 
-![app version](docs/screenshot/version.png)
+![app version](docs/_static/version.png)
 
 By the way, it also do good on mobile.
 
-![mobile version](docs/screenshot/mobile_platform.png) 
-![mobile list](docs/screenshot/mobile_list.png)
+![mobile version](docs/_static/mobile_platform.png) 
+![mobile list](docs/_static/mobile_list.png)
 
 
 Quick Start
 ---------------
-[Quick Start](<https://github.com/yijingping/django-access-dev-stat/blob/master/docs/quickstart.rst>)
+[Index](<docs/index.rst>)

@@ -1,32 +1,46 @@
 # ACCESS DEVICE STATISTICS
 # access device statistics is enabled by default, to temporarily disable, set to False:
 ACCESS_DEV_STAT = True
-# control your access views, can be regex
-# if blank, include all
-ACCESS_DEV_STAT_INCLUDE_VIEWS = ['pull_notify', 'search', 'recommend4me_list', 'latestmsgs', 'baike_list']
-# if blank, no exclude
-ACCESS_DEV_STAT_EXCLUDE_VIEWS = []
+# add to settings
+if ACCESS_DEV_STAT: 
+    MIDDLEWARE_CLASSES += (
+        'access_dev_stat.middleware.AccessDevStatMiddleware',
+        )
+    INSTALLED_APPS += ( 'access_dev_stat',)
 
 # control available date range
 from datetime import date
-ACCESS_DEV_STAT_DATE_RANGE = (date(2014,1,1), date(2015,1,1)) 
+ACCESS_DEV_STAT_DATE_RANGE = (date(2014,1,1), date(2099,1,1)) 
 
-# Whether log access record to file 
+# control your access views 
+# if blank, include all
+ACCESS_DEV_STAT_INCLUDE_VIEWS = ['func_name_1', 'func_name_2', 'func_name_3']
+# if blank, no exclude
+ACCESS_DEV_STAT_EXCLUDE_VIEWS = []
+
+
+# Whether log access record to file, if True, you can use `calc_stat.py` to get you data  
+# But for now, it is not supported. 
 ACCESS_DEV_STAT_LOG_TO_FILE = False
-# Whether log access record to redis, if True, you can use `calc_stat.py` to get you data 
+# Whether log access record to redis
 ACCESS_DEV_STAT_LOG_TO_REDIS = True 
-# set to get redis from cache, default is 'default'
+
+# set to get redis from cache, default is 'redis'
 ACCESS_DEV_STAT_CACHE_REDIS_KEY = 'redis' 
-# add to settings
-MIDDLEWARE_CLASSES += (
-        'access_dev_stat.middleware.AccessDevStatMiddleware',
-    )
-INSTALLED_APPS += ( 'access_dev_stat',)
-# these were setted before
-'''
+# Make sure you are set redis cache before, like these
+#CACHES = {                                                                  
+#    "redis": {                                                              
+#        "BACKEND": "redis_cache.cache.RedisCache",                          
+#        "LOCATION": "192.168.10.100:6379:0",                                
+#        "OPTIONS": {                                                        
+#            "CLIENT_CLASS": "redis_cache.client.DefaultClient",             
+#        }                                                                   
+#    },                                                                      
+#}                                                                           
+
+# cookie name set in every request 
 GUID_COOKIE_NAME = '_guid'
 DEVICE_COOKIE_NAME = '_device'
 PLATFORM_COOKIE_NAME = '_platform'
 CHANNEL_COOKIE_NAME = '_channel'
 VERSION_COOKIE_NAME = '_version'
-'''
