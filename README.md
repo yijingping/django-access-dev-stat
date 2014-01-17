@@ -8,23 +8,22 @@ And also it offered charts to show these device statistics.
 
 From these charts, you can find: 
 
-    #. the the number of devices which are alive or opened in 2 weeks.
+* the the number of devices which are alive or opened in 2 weeks.
 
-    #. app channels, app versions, app platfrom statistics.
+* app channels, app versions, app platfrom statistics.
 
 
 Here is some screen shot from my django app.
 
-[![app alive](docs/screenshot/alive.png)]
+![app alive](docs/screenshot/alive.png)
 
-[![app version](docs/screenshot/version.png)]
+![app version](docs/screenshot/version.png)
 
 By the way, it also do good on mobile.
 
-[![mobile version](docs/screenshot/mobile_version.png)]
+![mobile version](docs/screenshot/mobile_platform.jpg)
 
-[![mobile list](docs/screenshot/mobile_list.png)]
+![mobile list](docs/screenshot/mobile_list.jpg)
 
 
-
-[quick start](<https://github.com/yijingping/django-access-dev-stat/blob/master/docs/quickstart.rst>)
+[Quick Start](<https://github.com/yijingping/django-access-dev-stat/blob/master/docs/quickstart.rst>)
