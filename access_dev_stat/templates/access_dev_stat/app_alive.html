@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>找室友设备数统计</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
+    <!-- Custom styles for this template -->
+        <!-- CSS code from Bootply.com editor -->
+        
+        <style type="text/css">
+            body {
+
+  padding-top: 51px;  
+
+}
+
+.text-center {
+
+  padding-top: 20px;
+
+}
+
+.achart {
+  padding-bottom: 20px;
+}
+
+.col-xs-12 {
+
+  background-color: #fff;
+  padding-top: 20px;
+
+}
+
+#sidebar {
+
+  height: 100%;
+
+  padding-right: 0;
+
+  padding-top: 20px;
+
+}
+
+#sidebar .nav {
+
+  width: 95%;
+
+}
+
+#sidebar li {
+
+  border:0 #f2f2f2 solid;
+
+  border-bottom-width:1px;
+
+}
+
+#sidebar .active {
+    background-color: #ddd;
+}
+
+
+
+/* collapsed sidebar styles */
+
+@media screen and (max-width: 767px) {
+
+  .row-offcanvas {
+
+    position: relative;
+
+    -webkit-transition: all 0.25s ease-out;
+
+    -moz-transition: all 0.25s ease-out;
+
+    transition: all 0.25s ease-out;
+
+  }
+
+  .row-offcanvas-right
+
+  .sidebar-offcanvas {
+
+    right: -41.6%;
+
+  }
+
+
+
+  .row-offcanvas-left
+
+  .sidebar-offcanvas {
+
+    left: -41.6%;
+
+  }
+
+  .row-offcanvas-right.active {
+
+    right: 41.6%;
+
+  }
+
+  .row-offcanvas-left.active {
+
+    left: 41.6%;
+
+  }
+
+
+  .sidebar-offcanvas {
+
+    position: absolute;
+
+    top: 0;
+
+    width: 41.6%;
+
+  }
+
+  #sidebar {
+
+    background-color:#3b3b3b;
+
+    padding-top:0;
+
+  }
+
+  #sidebar .nav>li {
+
+    color: #ddd;
+
+    background: linear-gradient(#3E3E3E, #383838);
+
+    border-top: 1px solid #484848;
+
+    border-bottom: 1px solid #2E2E2E;
+
+  }
+
+  #sidebar .nav>li:first-child {
+
+    border-top:0;
+
+  }
+
+  #sidebar .nav>li>a {
+    color: #ddd;
+  }
+
+  #sidebar .nav>li>a>img {
+
+    max-width: 14px;
+
+  }
+
+  #sidebar .nav>li>a:hover, #sidebar .nav>li>a:focus {
+
+    text-decoration: none;
+
+    background: linear-gradient(#373737, #323232);
+
+    color: #fff;  
+
+  }
+
+  #sidebar .nav .caret {
+
+    border-top-color: #fff;
+
+    border-bottom-color: #fff;
+
+  }
+
+  #sidebar .nav a:hover .caret{
+
+    border-top-color: #fff;
+
+    border-bottom-color: #fff;
+
+  }
+
+}
+
+
+
+
+        </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+        <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+      <div class="page-container">
+        <!-- top navbar -->
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".sidebar-nav">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/access_dev_stat/">找室友</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row row-offcanvas row-offcanvas-left">
+
+                <!-- sidebar -->
+                <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+                    <ul class="nav">
+                        <li class="active"><a href="/access_dev_stat/">概况</a></li>
+                        <li><a href="/access_dev_stat/?t=app_version">版本分布</a></li>
+                        <li><a href="/access_dev_stat/?t=app_channel">渠道分析</a></li>
+                        <li><a href="/access_dev_stat/?t=app_platform">平台分布</a></li>              
+                    </ul>
+                </div>
+
+                <!-- main area -->
+                <div class="col-xs-12 col-sm-10">
+                    <div class="panel-group achart" id="android-panel">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#android-panel" href="#android-collapse">
+                                        Android 
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="android-collapse" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <div id="androidChart" style="min-width:400px;height:400px;margin:0 auto;"> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-group achart" id="iphone-panel">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#iphone-panel" href="#iphone-collapse">
+                                       IPhone 
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="iphone-collapse" class="panel-collapse collapsing">
+                                <div class="panel-body">
+                                    <div id="iphoneChart" style="min-width:400px;height:400px;margin:0 auto;"> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /.col-xs-12 main -->
+            </div><!--/.row-->
+
+            <hr>
+            <footer>
+            <p>&copy; 2012 九九房</p>
+            </footer>
+        </div><!--/.container-->
+
+    </div><!--/.page-container-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <!-- include highcharts js -->
+    <script src="http://www.52wulian.org/test/HighCharts/js/highcharts.js"></script>
+    <!-- draw chart -->
+    <script type="text/javascript">
+    function showChart(data)
+    {
+            var docid;
+            if (data.platform == 'android'){
+                docid = 'androidChart'
+            }else if (data.platform == 'iPhone'){
+                docid = 'iphoneChart'
+            }
+         //定义一个HighCharts 
+         var chart = new Highcharts.Chart({
+            //配置chart选项
+            chart: {
+                renderTo: docid,  //容器名，和body部分的div id要一致
+                type: 'spline'                      //图表类型，这里选择折线图
+             },
+            //配置链接及名称选项 
+            credits: {
+                enabled : false,
+                href : "",
+                text : ""
+            },
+            //配置标题
+            title: {
+                text: '',
+                y:10  //默认对齐是顶部，所以这里代表距离顶部10px 
+            },
+            //配置x轴
+            xAxis: {
+                categories: data.days
+            },
+            // 配置y轴
+            yAxis: {
+                title: {
+                    text: '设备数'
+                },
+                labels: {   
+                    formatter: function() {
+                        return this.value
+                    }
+                }
+            },
+            //配置数据点提示框
+            tooltip: {
+                crosshairs: true,
+                shared: true
+            },
+            //配置数据使其点显示信息
+            plotOptions: {
+                spline : {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: true
+                }
+            },
+            //配置数据列 
+            series: [
+                {
+                name: '日启动',
+                data: data.day_open,
+                color: '#ff6600',
+                marker: {
+                    symbol: 'circle',
+                    fillColor: 'white',
+                    lineColor: null,
+                    lineWidth: 2
+                    }
+                },
+                {
+                name: '日存活',
+                data: data.day_alive,
+                color: '#0099ff',
+                marker: {
+                    symbol: 'circle',
+                    fillColor: 'white',
+                    lineColor: null,
+                    lineWidth: 2
+                    }
+                }
+             ]
+             });
+        
+    };
+    $(function () {
+      $(document).ready(function() {
+        $.ajax({
+            dataType: "json",
+            url: '/access_dev_stat/app_alive/?platform=android',
+            success: showChart 
+         });
+        $.ajax({
+            dataType: "json",
+            url: '/access_dev_stat/app_alive/?platform=iPhone',
+            success: showChart 
+         });
+
+        });
+    });
+  </script>
+  <script type='text/javascript'>
+      $(document).ready(function() {
+          $('[data-toggle=offcanvas]').click(function() {
+              $('.row-offcanvas').toggleClass('active');
+          });
+      });
+  </script>
+  </body>
+</html>
